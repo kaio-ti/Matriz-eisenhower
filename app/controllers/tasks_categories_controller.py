@@ -1,13 +1,8 @@
-# from app.models.tasks_model import TasksModel
-from flask import current_app
-from flask import jsonify, request
+from flask import jsonify
 from app.models.categories_model import CategoriesModel
 
-from app.models.tasks_categories_model import TasksCategoriesModel
-from app.models.tasks_model import TasksModel
-
 def get_tasks_categories():
-    list = TasksCategoriesModel.query.all()
+    list = CategoriesModel.query.all()
 
     return jsonify([{
         "id": category.id,
@@ -17,6 +12,6 @@ def get_tasks_categories():
             "id": task.id,
             "name": task.name,
             "description": task.description,
-            "priority": task.eisehowers_classification.type
-            } for task in category.result]
+            "priority": task.eisenhowers_classification.type
+            } for task in category.task]
         } for category in list]), 200

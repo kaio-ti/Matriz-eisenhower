@@ -1,4 +1,5 @@
 from app.exceptions.exceptions import InvalidImportanceOrUrgencyError, UniqueTaskError, UpdateImportanceOrUrgencyError
+from app.models.tasks_categories_model import TasksCategoriesModel
 from app.models.tasks_model import TasksModel
 from app.models.categories_model import CategoriesModel
 from flask import current_app, request
@@ -20,6 +21,11 @@ def create_task():
         new_task = TasksModel(**data)
         current_app.db.session.add(new_task)
         current_app.db.session.commit()
+
+        for category in categories:
+            current_app.db.session.add(TasksCategoriesModel(task_id=new_task.id, category_id=category.id))
+            current_app.db.session.commit()
+
 
         return{
             "id": new_task.id,

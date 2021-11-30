@@ -17,7 +17,7 @@ class CategoriesModel(db.Model):
 
     id = Column(Integer, primary_key=True)
     name = Column(String(100), unique=True, nullable=False)
-    description = Column(Text)
+    description = Column(Text, default="")
     task = relationship('TasksModel', secondary='tasks_categories', backref='categories')
 
 

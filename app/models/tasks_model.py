@@ -27,7 +27,7 @@ class TasksModel(db.Model):
     importance = Column(Integer)
     urgency = Column(Integer)
     eisenhower_id = Column(Integer, ForeignKey("eisenhowers.id"), nullable=False)
-    eisenhower_classification = relationship("EisenhowersModel", backref=backref('tasks', uselist=False), uselist=False)
+    eisenhowers_classification = relationship("EisenhowersModel", backref=backref('tasks', uselist=False), uselist=False)
 
     @validates('name')
     def validate(self, key, name):

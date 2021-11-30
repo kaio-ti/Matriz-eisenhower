@@ -15,5 +15,4 @@ class TasksCategoriesModel(db.Model):
     id = Column(Integer, primary_key=True)
     task_id = Column(Integer, ForeignKey("tasks.id"))
     category_id = Column(Integer, ForeignKey("categories.id"))
-
-
+    tasks = relationship('TasksModel')
