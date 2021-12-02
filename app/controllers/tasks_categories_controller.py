@@ -12,6 +12,6 @@ def get_tasks_categories():
             "id": task.id,
             "name": task.name,
             "description": task.description,
-            "priority": task.eisenhowers_classification.type
+            "priority": task.eisenhower_classification.type
             } for task in category.task]
         } for category in list]), 200
