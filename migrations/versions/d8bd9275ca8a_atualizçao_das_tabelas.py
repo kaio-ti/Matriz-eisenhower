@@ -1,8 +1,8 @@
-"""Criaçao das tabelas
+"""atualizçao das tabelas
 
-Revision ID: c9d9ef02f271
+Revision ID: d8bd9275ca8a
 Revises: 
-Create Date: 2021-11-29 15:46:33.958739
+Create Date: 2021-12-02 14:12:52.358286
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'c9d9ef02f271'
+revision = 'd8bd9275ca8a'
 down_revision = None
 branch_labels = None
 depends_on = None
